@@ -22,3 +22,14 @@ def decode_word(word)
   return @decoded_word;
 end
 
+def decode_sentence(sentence)
+  @words = sentence.split('   ')
+  @decoded = ''
+  @words.each do |word|    
+   @decoded += decode_word(word) + ' '
+  end
+  return @decoded;
+end
+
+puts decode_sentence('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+
