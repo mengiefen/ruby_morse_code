@@ -1,4 +1,4 @@
-$code_pair = {
+@code_pair = {
   '.-' => 'A', '-...' => 'B', '-.-.' => 'C', '-..' => 'D',
   '.' => 'E', '..-.' => 'F', '--.' => 'G', '....' => 'H',
   '..' => 'I', '.---' => 'J', '-.-' => 'K', '.-..' => 'L',
@@ -9,25 +9,25 @@ $code_pair = {
 }
 
 def decode_char(code)
-  return $code_pair[code]
+  @code_pair[code]
 end
 
 def decode_word(word)
-  @current_word = word.split(' ')
+  @current_word = word.split
   @decoded_word = ''
   @current_word.each do |letter|
     @decoded_word += decode_char(letter)
   end
-  return @decoded_word;
+  @decoded_word
 end
 
 def decode_sentence(sentence)
   @words = sentence.split('   ')
   @decoded = ''
   @words.each do |word|
-    @decoded += decode_word(word) + ' '
+    @decoded += "#{decode_word(word)} "
   end
-  return @decoded;
+  @decoded
 end
 
 puts decode_sentence('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
